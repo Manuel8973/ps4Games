@@ -29,9 +29,30 @@ Una landing page moderna y responsive para mostrar un catálogo de juegos de Pla
 
 ## 🚀 Instalación y Uso
 
+### Opción 1: Uso Básico (GitHub Pages)
 1. **Descarga** todos los archivos del proyecto
 2. **Abre** `index.html` en tu navegador
-3. **¡Listo!** No requiere servidor web ni instalación adicional
+3. **¡Listo!** Usa imágenes estáticas sin necesidad de API key
+
+### Opción 2: Con API de RAWG (Opcional)
+1. **Copia** `config.example.js` a `config.js`
+2. **Regístrate** en https://rawg.io/apidocs para obtener una API key gratuita
+3. **Edita** `config.js` y agrega tu API key:
+```javascript
+const CONFIG = {
+    RAWG_API_KEY: 'tu-api-key-aqui',
+    USE_API: true,
+    USE_PLACEHOLDER_IMAGES: false
+};
+```
+4. **Abre** `index.html` en tu navegador
+
+### Configuración Segura para GitHub Pages
+El proyecto incluye un sistema de configuración seguro que:
+- ✅ **No expone** API keys en el repositorio público
+- ✅ **Funciona sin API** usando imágenes estáticas
+- ✅ **Permite API opcional** para desarrollo local
+- ✅ **Compatible con GitHub Pages** out-of-the-box
 
 ## 📁 Estructura del Proyecto
 
@@ -41,8 +62,15 @@ Una landing page moderna y responsive para mostrar un catálogo de juegos de Pla
 ├── 🎨 styles.css          # Todos los estilos y animaciones
 ├── ⚡ script.js           # Funcionalidades JavaScript
 ├── 🔧 api-config.js       # Configuración para APIs de juegos
+├── ⚙️ config.js           # Configuración de API (segura)
+├── 📋 config.example.js   # Ejemplo de configuración
 └── 📖 README.md           # Este archivo
 ```
+
+### Archivos de Configuración
+- **`config.js`**: Configuración activa (incluida en .gitignore para seguridad)
+- **`config.example.js`**: Plantilla de configuración para desarrollo local
+- **`api-config.js`**: Mapeo de portadas estáticas como fallback
 
 ## 🎯 Personalización
 
@@ -81,47 +109,38 @@ const gameCoverMap = {
 };
 ```
 
-## 🔗 APIs de Juegos Disponibles
+## 🔗 Configuración de API (Opcional)
 
-### RAWG API (Recomendada) 🆓
-- **URL**: https://rawg.io/apidocs
-- **Características**: Base de datos completa, gratis hasta 20,000 requests/mes
-- **Datos**: Portadas, screenshots, metadata, ratings
-
-### The Game Database 🆓
-- **URL**: https://thegamesdb.net/
-- **Características**: API gratuita, enfocada en portadas y metadata
-- **Datos**: Portadas de alta calidad, información detallada
-
-### IGDB API 💰
-- **URL**: https://api.igdb.com/
-- **Características**: API muy completa (propiedad de Twitch)
-- **Datos**: Metadata completa, portadas, videos, reviews
-
-### Implementar API (Ejemplo con RAWG):
-
-1. **Regístrate** en https://rawg.io/apidocs
-2. **Obtén tu API key**
-3. **Reemplaza** en `script.js`:
+### Configuración Segura
+El proyecto utiliza un sistema de configuración que protege las API keys:
 
 ```javascript
-const API_KEY = 'tu-api-key-aqui';
-
-async function getGameCover(game) {
-    try {
-        const response = await fetch(
-            `https://api.rawg.io/api/games?key=${API_KEY}&search=${game.title}&page_size=1`
-        );
-        const data = await response.json();
-        if (data.results?.[0]?.background_image) {
-            return data.results[0].background_image;
-        }
-    } catch (error) {
-        console.log('API error:', error);
-    }
-    return null; // Fallback a gradient
-}
+// config.js (no incluido en el repositorio)
+const CONFIG = {
+    RAWG_API_KEY: 'tu-api-key-privada',
+    USE_API: true,
+    USE_PLACEHOLDER_IMAGES: false
+};
 ```
+
+### APIs Disponibles
+
+#### RAWG API (Recomendada) 🆓
+- **URL**: https://rawg.io/apidocs
+- **Gratis**: Hasta 20,000 requests/mes
+- **Datos**: Portadas HD, metadata, ratings
+
+#### Configuración Manual (Solo desarrollo local):
+1. **Copia** `config.example.js` → `config.js`
+2. **Regístrate** en RAWG y obtén tu API key
+3. **Edita** `config.js` con tu API key
+4. **Nunca subas** `config.js` al repositorio
+
+### Fallback Sin API
+Si no configuras una API, el proyecto automáticamente usa:
+- ✅ **Portadas estáticas** de alta calidad
+- ✅ **Placeholders con gradientes** para juegos nuevos
+- ✅ **Funcionamiento completo** sin configuración adicional
 
 ## 📱 Compatibilidad Móvil
 

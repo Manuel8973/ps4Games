@@ -168,7 +168,8 @@ const games = [
 const API_CONFIG = {
     // Using RAWG API for game covers (free tier available)
     BASE_URL: 'https://api.rawg.io/api/games',
-    API_KEY: '0a90effd2add482d94120dab4ac4e4f3', // Your RAWG API key
+    API_KEY: CONFIG?.RAWG_API_KEY || '', // API key from config file
+    USE_API: CONFIG?.USE_API || false,
     // Alternative: Using placeholder service for demo
     PLACEHOLDER_URL: 'https://via.placeholder.com/400x200/0070f3/ffffff?text='
 };
@@ -243,22 +244,24 @@ async function getGameCover(game) {
         'fifa25': 'https://image.api.playstation.com/vulcan/ap/rnd/202409/0611/9a8b9c7d6e5f4g3h2i1j0k9l.jpg'
     };
     
-    // Try API first for dynamic loading of new games
-    try {
-        const searchQuery = game.title.replace(/[^\w\s]/g, '').trim(); // Clean title for search
-        const response = await fetch(
-            `${API_CONFIG.BASE_URL}?key=${API_CONFIG.API_KEY}&search=${encodeURIComponent(searchQuery)}&page_size=1&platforms=18` // Platform 18 = PlayStation 4
-        );
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.results && data.results.length > 0 && data.results[0].background_image) {
-                console.log(`✅ API cover found for: ${game.title}`);
-                return data.results[0].background_image;
+    // Try API first for dynamic loading of new games (only if enabled)
+    if (API_CONFIG.USE_API && API_CONFIG.API_KEY) {
+        try {
+            const searchQuery = game.title.replace(/[^\w\s]/g, '').trim(); // Clean title for search
+            const response = await fetch(
+                `${API_CONFIG.BASE_URL}?key=${API_CONFIG.API_KEY}&search=${encodeURIComponent(searchQuery)}&page_size=1&platforms=18` // Platform 18 = PlayStation 4
+            );
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.results && data.results.length > 0 && data.results[0].background_image) {
+                    console.log(`✅ API cover found for: ${game.title}`);
+                    return data.results[0].background_image;
+                }
             }
+        } catch (error) {
+            console.log(`⚠️ API fetch failed for ${game.title}, using fallback:`, error.message);
         }
-    } catch (error) {
-        console.log(`⚠️ API fetch failed for ${game.title}, using fallback:`, error.message);
     }
     
     // Return static cover if available, otherwise use gradient placeholder

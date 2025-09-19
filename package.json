@@ -1,0 +1,16 @@
+{
+  "name": "ps4-games-catalog",
+  "version": "1.0.0",
+  "description": "PS4 Games Catalog - Landing Page moderna y responsive",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "python -m http.server 8000 || php -S localhost:8000 || npx serve .",
+    "start": "npm run dev"
+  },
+  "keywords": ["ps4", "games", "catalog", "landing-page", "responsive"],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
