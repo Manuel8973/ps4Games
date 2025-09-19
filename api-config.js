@@ -28,7 +28,9 @@ const GAME_COVERS = {
     'ff7remake': 'https://image.api.playstation.com/vulcan/ap/rnd/202002/2118/4XVjjJqPR9Gep6SSIlHNvSCe.jpg',
     'gtsport': 'https://image.api.playstation.com/vulcan/img/rnd/202010/2618/EQnTlNjVXJlCNRJcOhsYqJ2P.jpg',
     'detroit': 'https://image.api.playstation.com/vulcan/img/rnd/202010/2618/d4HSc7mOd5JC9lLc8SPlKGvj.jpg',
-    'persona5r': 'https://image.api.playstation.com/vulcan/ap/rnd/202008/1010/T45iRN40SDL6UIBMNb5szKfT.jpg'
+    'persona5r': 'https://image.api.playstation.com/vulcan/ap/rnd/202008/1010/T45iRN40SDL6UIBMNb5szKfT.jpg',
+    'prototype': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2lc5.jpg',
+    'prototype2': 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2cd5.jpg'
 };
 
 // Function to get game cover with fallback

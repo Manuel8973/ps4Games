@@ -143,6 +143,24 @@ const games = [
         rating: 4,
         price: "$69.99",
         gameId: "fifa25"
+    },
+    {
+        id: 17,
+        title: "Prototype",
+        genre: "action",
+        description: "Un sandbox de acción brutal donde controlas a Alex Mercer con poderes sobrenaturales para vengarse.",
+        rating: 4,
+        price: "$19.99",
+        gameId: "prototype"
+    },
+    {
+        id: 18,
+        title: "Prototype 2",
+        genre: "action",
+        description: "La secuela mejorada con James Heller buscando venganza contra Alex Mercer en una Nueva York infectada.",
+        rating: 4,
+        price: "$24.99",
+        gameId: "prototype2"
     }
 ];
 
