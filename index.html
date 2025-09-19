@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 Games Catalog - Catálogo de Juegos PlayStation 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fab fa-playstation"></i>
+                <span>PS4 GAMES</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Inicio</a>
+                <a href="#catalog" class="nav-link">Catálogo</a>
+                <a href="#genres" class="nav-link">Géneros</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="particles"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">DESCUBRE LOS</span>
+                <span class="title-line highlight">MEJORES JUEGOS</span>
+                <span class="title-line">DE PS4</span>
+            </h1>
+            <p class="hero-subtitle">Explora nuestra colección curada de los títulos más épicos y emocionantes para PlayStation 4</p>
+            <button class="cta-button">
+                <span>EXPLORAR CATÁLOGO</span>
+                <i class="fas fa-rocket"></i>
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">CATÁLOGO DE JUEGOS</h2>
+                <p class="section-subtitle">Los títulos más increíbles esperándote</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="action">Acción</button>
+                <button class="filter-btn" data-filter="adventure">Aventura</button>
+                <button class="filter-btn" data-filter="rpg">RPG</button>
+                <button class="filter-btn" data-filter="sports">Deportes</button>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-btn active" id="grid-view" title="Vista Grid">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" id="list-view" title="Vista Lista">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-grid" id="games-grid">
+                <!-- Games will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="16">0</div>
+                    <div class="stat-label">Juegos Disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label">Géneros Diferentes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="800">0</div>
+                    <div class="stat-label">Horas de Diversión</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-label">Juegos Indie</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-playstation"></i>
+                    <span>PS4 GAMES CATALOG</span>
+                </div>
+                <div class="footer-text">
+                    <p>Tu destino definitivo para descubrir los mejores juegos de PlayStation 4</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PS4 Games Catalog. Diseñado con ❤️ para gamers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
